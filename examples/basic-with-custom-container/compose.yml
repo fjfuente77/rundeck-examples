@@ -1,0 +1,46 @@
+services:
+    rundeck:
+        container_name: rundeck
+        image: rundeck/rundeck:5.4.0
+        links:
+          - postgres
+        environment:
+            RUNDECK_GRAILS_URL: http://localhost:4440
+            RUNDECK_SERVER_ADDRESS: 0.0.0.0
+            RUNDECK_SERVER_PORT: 4440
+            RUNDECK_LOGLEVEL_DEFAULT: INFO
+            RUNDECK_PROJECTS_STORAGE_TYPE: db
+            DATA_SOURCE_DB_CREATE: update
+            DATA_SOURCE_URL: jdbc:postgresql://postgres:5432/rundeck
+            DATA_SOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+            DATA_SOURCE_USERNAME: rundeckuser
+            DATA_SOURCE_PASSWORD: strongpassword
+            DATA_SOURCE_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+        ports:
+          - 4440:4440
+
+    postgres:
+        container_name: postgres
+        image: postgres:15
+        expose:
+          - 5432
+        environment:
+          POSTGRES_DB: rundeck
+          POSTGRES_USER: rundeckuser
+          POSTGRES_PASSWORD: strongpassword
+        volumes:
+          - dbdata:/var/lib/postgresql/data
+
+volumes:
+    dbdata:
+
+
+
+
+
+
+
+
+
+
+

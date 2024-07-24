@@ -1,0 +1,46 @@
+# Ignore binary files
+*.o
+*.a
+*.so
+*.exe
+
+# Ignore log files and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+
+# Ignore directories
+node_modules/
+venv/
+__pycache__/
+.DS_Store
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore backup files
+*.bak
+*.orig
+*.save
+
+# Ignore direnv files
+.envrc
+./direnv
+
+# Ignore custom files (add any specific files or directories you want to ignore)
+output_file.csv
+input_file.txt
+others/
